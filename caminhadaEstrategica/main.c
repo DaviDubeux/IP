@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define passosEmXY printf("%d passo em x e %d passos em y", x, y)
-#define passosEmYX printf("%d passo em y e %d passos em x", y, x)
+#define passosEmXY printf("%d passos em x e %d passos em y", px, py)
+#define passosEmYX printf("%d passos em y e %d passos em x", py, px)
 
 int main() {
 
