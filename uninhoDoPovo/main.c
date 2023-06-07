@@ -12,7 +12,7 @@ int main() {
 
     P = Hv - Hi;
 
-    if (Hi < 0 || Hi >= 24 || Hv < 0 || Hv >= 24 || Hi > Hv||N <= 0) {
+    if (Hi < 0.0 || Hi >= 24.0 || Hv < 0.0 || Hv >= 24.0 || Hi > Hv||N <= 0) {
         printf("Entrada invalida\n");
     }
     else if (L == 'A') {
