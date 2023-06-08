@@ -34,7 +34,7 @@ int main() {
         if (sy == 1) {          // Quadrante 2
             (c == 1) ? passosEmYX : passosEmXY;
         }
-        else {                           // Quadrante 3
+        else {                  // Quadrante 3
             (c == 2) ? passosEmXY : passosEmYX;
         }
     }
