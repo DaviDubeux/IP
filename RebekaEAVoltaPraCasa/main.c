@@ -9,7 +9,7 @@ int main() {
 
     int t, x, y, z, r;
     int sChar, id1, id2, id3; //Se investir 2
-    int s3; //Se investir 3
+    int s3 = 0; //Se investir 3
     float a, b, c;
     char c1 , c2, c3;
 
@@ -68,12 +68,18 @@ int main() {
 
                     scanf("%d %d %d", &id1, &id2, &id3);
 
-                    if (id1 % 3 == 0 || id2 % 3 == 0 || id3 % 3 == 0){
-                        s3 = 3*((id1/3)*(id1/3 + 1)/2 + (id2/3)*(id2/3 + 1)/2 + (id3/3)*(id3/3 + 1)/2);
-                        printf("%d", s3);
+                    if (id1 % 3 == 0) {
+                        s3 = s3 + id1/3;
                     }
-
+                    if (id2 % 3 == 0) {
+                        s3 = s3 + id2/3;
+                    }
+                    if (id3 % 3 == 0) {
+                        s3 = s3 + id3/3;
+                    }
+                    
                     cadaHomem;
+                    printf("%d", s3);
                     (r >= 7) ? conseguiu : andou;           
                 }
                 else {                                 //Nao deu pra investir
