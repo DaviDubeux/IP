@@ -50,14 +50,8 @@ int main() {
                 
                 scanf(" %c %c %c", &c1, &c2, &c3);
 
-                sChar = (c1=='a')?(sChar+1):(c1=='b')?(sChar+2):(c1=='c')?(sChar+3):(c1=='d')?(sChar+4):(c1=='e')?(sChar+5):(c1=='f')?(sChar+6):(c1=='g')?(sChar+7):(c1=='h')?(sChar+8):(c1=='i')?(sChar+9):(c1=='j')?(sChar+10):(c1=='k')?(sChar+11):(c1=='l')?(sChar+12):(c1=='m')?(sChar+13):(c1=='n')?(sChar+14):(c1=='o')?(sChar+15):(c1=='p')?(sChar+16):(c1=='q')?(sChar+17):(c1=='r')?(sChar+18):(c1=='s')?(sChar+19):(c1=='t')?(sChar+20):(c1=='u')?(sChar+21):(c1=='v')?(sChar+22):(c1=='w')?(sChar+23):(c1=='x')?(sChar+24):(c1=='y')?(sChar+25):(sChar+26);
-
-                sChar = (c2=='a')?(sChar+1):(c2=='b')?(sChar+2):(c2=='c')?(sChar+3):(c2=='d')?(sChar+4):(c2=='e')?(sChar+5):(c2=='f')?(sChar+6):(c2=='g')?(sChar+7):(c2=='h')?(sChar+8):(c2=='i')?(sChar+9):(c2=='j')?(sChar+10):(c2=='k')?(sChar+11):(c2=='l')?(sChar+12):(c2=='m')?(sChar+13):(c2=='n')?(sChar+14):(c2=='o')?(sChar+15):(c2=='p')?(sChar+16):(c2=='q')?(sChar+17):(c2=='r')?(sChar+18):(c2=='s')?(sChar+19):(c2=='t')?(sChar+20):(c2=='u')?(sChar+21):(c2=='v')?(sChar+22):(c2=='w')?(sChar+23):(c2=='x')?(sChar+24):(c2=='y')?(sChar+25):(sChar+26);
-
-                sChar = (c3=='a')?(sChar+1):(c3=='b')?(sChar+2):(c3=='c')?(sChar+3):(c3=='d')?(sChar+4):(c3=='e')?(sChar+5):(c3=='f')?(sChar+6):(c3=='g')?(sChar+7):(c3=='h')?(sChar+8):(c3=='i')?(sChar+9):(c3=='j')?(sChar+10):(c3=='k')?(sChar+11):(c3=='l')?(sChar+12):(c3=='m')?(sChar+13):(c3=='n')?(sChar+14):(c3=='o')?(sChar+15):(c3=='p')?(sChar+16):(c3=='q')?(sChar+17):(c3=='r')?(sChar+18):(c3=='s')?(sChar+19):(c3=='t')?(sChar+20):(c3=='u')?(sChar+21):(c3=='v')?(sChar+22):(c3=='w')?(sChar+23):(c3=='x')?(sChar+24):(c3=='y')?(sChar+25):(sChar+26);
-
                 cadaHomem;
-                printf("%d\n", sChar);
+                printf("%d", c1 + c2 + c3 - 96*3);
                 (r >= 6) ? conseguiu : andou;           
             }
             else {                                      //Investiu 3
