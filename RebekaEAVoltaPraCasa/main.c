@@ -8,11 +8,10 @@
 int main() {
 
     float t, x, y, z, r;
-    int id1, id2, id3; 
-    int s3 = 0; 
     float a, b, c;
     char c1 , c2, c3;
-    int sChar = 0;
+    int id1, id2, id3; 
+    int s3 = 0; 
 
     scanf("%f %f %f %f", &t, &x, &y, &z);
 
