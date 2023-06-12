@@ -51,7 +51,7 @@ int main() {
                 scanf(" %c %c %c", &c1, &c2, &c3);
 
                 cadaHomem;
-                printf("%d", c1 + c2 + c3 - 96*3);
+                printf("%d\n", c1 + c2 + c3 - 96*3);
                 (r >= 6) ? conseguiu : andou;           
             }
             else {                                      //Investiu 3
