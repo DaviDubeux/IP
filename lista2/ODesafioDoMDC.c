@@ -3,7 +3,7 @@
 int main() {
     
     int x, y, subs;
-    int a0, a1, b0, b1, c, ndivisores = 0, maiorDivisores = 0, menorDivisores = 0;
+    int a, b, c, ndivisores = 0, maiorDivisores = 0, menorDivisores = 0;
 
     scanf("%d %d", &x, &y);
 
@@ -13,56 +13,40 @@ int main() {
         y = subs;
     }
 
-    //Define a0
+    //Define a
     for(int i = x; i <= y; i++){
         ndivisores = 0;
         for(int j = 1; j<=i; j++){
             if(i%j == 0) ndivisores++;
             if(ndivisores > maiorDivisores){
                 maiorDivisores = ndivisores;
-                a0 = i;
+                a = i;
                 }
-        }
-    }
-
-    //Define b0
-    for(int i = x; i <= y; i++){
-        ndivisores = 0;
-        for(int j = 1; j<=i; j++){
-            if(i%j == 0) ndivisores++;
         }
         if (menorDivisores > 0 && ndivisores > 2 && ndivisores < menorDivisores) {
             menorDivisores = ndivisores;
-            b0 = i;
+            b = i;
         }
         else if (menorDivisores == 0 && ndivisores > 2){
             menorDivisores = ndivisores;
-            b0 = i;
+            b = i;
         }
     }
 
-    printf("%d ", a0);
-    printf("%d ", b0);
+    printf("%d ", a);
+    printf("%d ", b);
 
     //Define c
-    while(a1 != a0 || b1 != b0){
-        a1 = a0 % b0;
-        a0 = a1;
-        b1 = b0 % a0;
-        b0 = b1;
-    }
-
-    if (a0>b0){
-        subs = a0;
-        a0 = b0;
-        b0 = subs;
-    }
-
-    for(int i = 1; i <= b0; i++){
-        if(a0 % i == 0 && b0 % i ==0) {
-            c = i;
+    while(a != 0 && b != 0){
+        if (a>b){
+            a = a%b;
+        }
+        else{
+            b = b%a;
         }
     }
+
+    c = (a ? a : b);
 
     printf("%d ", c);
 
