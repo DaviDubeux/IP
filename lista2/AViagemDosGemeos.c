@@ -8,9 +8,9 @@ int main() {
 
     base = 2*n - 1;
 
-    for(int i = 1 ; i<=n; i++){ //. do começo
+    for(int i = 1 ; i<=n; i++){ 
         for(int j = 1; j<= base; j++){
-            if(j<(n-i+1)){
+            if(j<(n-i+1)){ //. do começo
                 printf(".");
             }
             else if(j<=(n+i-1)){ //& e -
