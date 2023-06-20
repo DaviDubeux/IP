@@ -2,40 +2,47 @@
 
 int main() {
 
-    int x, n, e1, e2, menorErro, erro, min, s0, s1, s2, temp;
+    int x, n, en1, en2, melhorCanal, min, melhorMinDoCanal, melhorMin;
+    int erroAtual = 1, erroPassado = 0, menorErroDoCanal, menorErro, seq1, seq2, seq3, temp;
 
     scanf("%d", &x);
     scanf("%d", &n);
 
-    for(int i = 1; i<= n; i++){
+    for(int i = 1; i <= n; i++){
+        
+        scanf("%d %d", &en1, &en2);
 
-        scanf("%d %d", &e1, &e2);
+        //calcula o menor erro e melhor min pra essa entrada
+        for(min = 1; (erroAtual < erroPassado) || (min == 1); min++){
+            
+            erroPassado = erroAtual;
 
-        for(min = 1; menorErro < erro; min++){
+            if(min == 1) {
+                seq1 = en1;
+                erroAtual = (x - seq1 >= 0 ? x - seq1 : seq1 - x);
+            }
+            if(min == 2) {
+                seq2 = en2;
+                erroAtual = (x - seq2 >= 0 ? x - seq2 : seq2 - x);
+            }
+            if(min < 2) {
+                temp = seq1; seq1 = seq2; seq2 = seq3; seq3 = temp + seq2;
+                erroAtual = (x - seq3 >= 0 ? x - seq3 : seq3 - x);
+            }
 
-            if (min == 1) {
-                s0 = e1;
-                erro = menorErro;
-                menorErro = (x - e1 >= 0 ? x - e1 : e1 - x);
-
-            }else if (min == 2) {
-                s1 = e2;
-                erro = menorErro;
-                menorErro = (x - e2 >= 0 ? x - e1 : e2 - x);
-
-            }else if (min == 3) {
-                s2 = s1 + s0;
-                erro = menorErro;
-                menorErro = (x - s2 >= 0 ? x - s2 : s2 - x);
-            }else if (min > 3) {
-                erro = menorErro;
-                menorErro = (x - e2 >= 0 ? x - e1 : e2 - x);
-
+            if(erroPassado<menorErroDoCanal){
+                menorErroDoCanal = erroPassado;
+                melhorMinDoCanal = min;
             }
         }
 
+        if(menorErroDoCanal<menorErro){
+            menorErro = menorErroDoCanal;
+            melhorMin = melhorMinDoCanal;
+        }
     }
 
+    printf("Xupenio, para ir ao lulupalooza vc deve entrar no canal %d e sera chamado mais ou menos no minuto %d", menorErro, melhorMin);
 
     return 0;
 }
