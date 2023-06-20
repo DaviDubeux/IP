@@ -1,20 +1,26 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
 
-    int x, n, en1, en2, melhorCanal, min, melhorMinDoCanal, melhorMin;
-    int erroAtual = 1, erroPassado = 0, menorErroDoCanal, menorErro, seq1, seq2, seq3, temp;
+    int x, n, en1, en2, melhorCanal, min, melhorMin, vip;
+    int erroAtual, erroPassado, menorErro, seq1 = 0, seq2 = 0, seq3 = 0, temp;
 
     scanf("%d", &x);
     scanf("%d", &n);
 
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++){ //calcula o melhor canal
         
+        // printf("----------\n");
         scanf("%d %d", &en1, &en2);
 
-        //calcula o menor erro e melhor min pra essa entrada
-        for(min = 1; (erroAtual < erroPassado) || (min == 1); min++){
-            
+        min = 1;
+        erroAtual = 0; erroPassado = 0;
+        seq1 = 0; seq2 = 0; seq3 = 0;
+
+        // calcula o menor erro e melhor min pra essa entrada
+        while(erroAtual<=erroPassado || erroAtual == 0 || erroPassado == 0){
+
             erroPassado = erroAtual;
 
             if(min == 1) {
@@ -25,24 +31,45 @@ int main() {
                 seq2 = en2;
                 erroAtual = (x - seq2 >= 0 ? x - seq2 : seq2 - x);
             }
-            if(min < 2) {
-                temp = seq1; seq1 = seq2; seq2 = seq3; seq3 = temp + seq2;
+            if(min == 3) {
+                seq3 = seq1 + seq2;
+                erroAtual = (x - seq3 >= 0 ? x - seq3 : seq3 - x);
+            }
+            if(min > 3) {
+                temp = seq2; seq2 = seq3; seq3 = seq3 + temp;
                 erroAtual = (x - seq3 >= 0 ? x - seq3 : seq3 - x);
             }
 
-            if(erroPassado<menorErroDoCanal){
-                menorErroDoCanal = erroPassado;
-                melhorMinDoCanal = min;
-            }
-        }
+            // printf("erroAtual: %d  erroPassado: %d || seq1: %d  seq2: %d  seq3: %d  \n", erroAtual, erroPassado, seq1, seq2, seq3);
 
-        if(menorErroDoCanal<menorErro){
-            menorErro = menorErroDoCanal;
-            melhorMin = melhorMinDoCanal;
+            if(erroAtual<menorErro || (i==1 && min == 1)){
+
+                menorErro = erroAtual;
+                melhorCanal = i;
+                melhorMin = min;
+                // printf("Menor erro: %d ", menorErro);
+
+                vip = 0;
+                temp = seq3;
+                while(temp>0){
+                    vip += temp % 10;
+                    temp /= 10;
+                    // printf("vip: %d /", vip);
+                }
+                // printf("\n");
+            }
+
+            min++;
         }
     }
 
-    printf("Xupenio, para ir ao lulupalooza vc deve entrar no canal %d e sera chamado mais ou menos no minuto %d", menorErro, melhorMin);
+    // printf("Menor erro de todos: %d\n", menorErro);
+    printf("Xupenio, para ir ao lulupalooza vc deve entrar no canal %d e sera chamado mais ou menos no minuto %d", melhorCanal, melhorMin);
+    if(vip>10) printf(" e com o VIP garantido!!!\n");
+    else printf(", mas o ingresso VIP não vai rolar :(\n");
+
+    // printf(" e com o VIP garantido!!!\n");
+    // printf(", mas o ingresso VIP não vai rolar :(\n");
 
     return 0;
 }
