@@ -1,34 +1,41 @@
 #include <stdio.h>
+#define jDivMaisDeUmaVez ((i/j) % j == 0)
 
 int main() {
 
-    int n, k, p, q;
-    int divisoresDeI = 0, divisoresDeJ = 0, divisoresPrimosDeI = 0;
+    int n, k, p, q = 0;
+    int primeiroI = 0;
+    int divisoresDeJ, divisoresPrimosImparesDistintosDeI;
+    int i, j, l;
 
     scanf("%d %d %d", &n, &k, &p);
 
-    for(int i = n; i < k  && divisoresPrimosDeI != p; i++){
-        for(int j = 1; j <= i; j++){
-            for (int k = 1; k <= j; k++){
-                if (j%k == 0) divisoresDeJ++;
+    for(i = n; i < k; i++){ //analisa o I
+
+        divisoresPrimosImparesDistintosDeI = 0;
+
+        for(j = 3; j<=i/2 ; j++){ // analisa o divisor de I (J)
+
+            divisoresDeJ = 1;
+
+            // analisa se j é primo
+            for(l = 1; l<=j/2; l++){
+                if(j%l == 0) divisoresDeJ++;
             }
-            if (divisoresDeJ == 2 && i%j == 0 && (i/j) % j != 0 && j != 2){
-                divisoresPrimosDeI++;
-            }
+
+            if(jDivMaisDeUmaVez && j != 1) break;
+
+            // analisa se bate com as condições de q
+            if(divisoresDeJ == 2 && i%j == 0 && !jDivMaisDeUmaVez) divisoresPrimosImparesDistintosDeI++;
+        }
+        if (divisoresPrimosImparesDistintosDeI == p){
+            if(primeiroI == 0) primeiroI = i;
+            else q++;
         }
     }
 
-    for(int i = n; i < k  && divisoresPrimosDeI; i++){
-        for(int j = 1; j <= i; j++){
-            for (int k = 1; k <= j; k++){
-                if (j%k == 0) divisoresDeJ++;
-            }
-            if (divisoresDeJ == 2 && i%j == 0 && (i/j) % j != 0 && j != 2){
-                divisoresPrimosDeI++;
-            }
-        }
-        q = (divisoresDeI/p) - 1;
-    }
+    if (primeiroI != 0) printf("%d %d", primeiroI, q);
+    else printf("Poxa dudinha, me desculpa, nao achei os numeros mas vou te mandar uma foto de um gatinho fofo.");
 
     return 0;
 }
