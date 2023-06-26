@@ -26,19 +26,19 @@ int main() {
                 if (parede[i + 1][j] == '#') {
                     if (j == 0 && parede[i][j + 1] == '.'){
                         parede[i][j + 1] = 'o';
-                        i--; j--;
+                        j = -1;
                     }
-                    else if (j < n - 1 && parede[i][j + 1] == '.'){
+                    if (j > 0 && j < n - 1 && parede[i][j + 1] == '.'){
                         parede[i][j + 1] = 'o';
-                        i--; j--;
+                        j = -1;
                     }
-                    else if (j < n - 1 && parede[i][j - 1] == '.'){
+                    if (j > 0 && j < n - 1 && parede[i][j - 1] == '.'){
                         parede[i][j - 1] = 'o';
-                        i--; j--;
+                        j = -1;
                     }
-                    else if (j == n - 1 && parede[i][j - 1] == '.'){
+                    if (j == n - 1 && parede[i][j - 1] == '.'){
                         parede[i][j - 1] = 'o';
-                        i--; j--;
+                        j = -1;
                     }
                 }
             }

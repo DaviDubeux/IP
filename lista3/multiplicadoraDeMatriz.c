@@ -10,7 +10,7 @@ int main()
     int a[Ai][Aj], b[Bi][Bj];
 
 
-    if(Aj == Bi && Ai == Bj){
+    if(Aj == Bi){
 
         for (int i = 0 ; i < Ai ; i++){
             for (int j = 0 ; j < Aj ; j++){
