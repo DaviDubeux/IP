@@ -2,8 +2,7 @@
 
 int main() {
 
-    int t, n, maiorN = 0, seqAtual = 1, maiorSeq = 1, jMaiorSeq = 0, jPassado = 0;
-    int k;
+    int t, n, seqAtual = 1, maiorSeq = 1, jMaiorSeq = 0;
 
     scanf("%d", &t);
 
@@ -23,7 +22,7 @@ int main() {
             scanf("%d", &s[i][j]);
         }
 
-        seqAtual = 1, maiorSeq = 1, jMaiorSeq = 0, jPassado = 0;
+        seqAtual = 1, maiorSeq = 1, jMaiorSeq = 0;
         
         for (int j = 0; j < n - 1; j++){
             if (s[i][j + 1] < s[i][j]){
