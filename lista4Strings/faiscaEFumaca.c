@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#define ultimoLed strlen(saida[i]) - 1
 #define trocaLed(x) x = (x == 'X') ? 'O' : 'X'
 
 int main() {
@@ -9,7 +8,7 @@ int main() {
     int i, j, k;
     scanf("%d", &r);
 
-    char led[61], saida[r][61], ornamento;
+    char led[61], saida[r*61];
 
     memset(saida, 0, sizeof(saida));
 
@@ -28,30 +27,25 @@ int main() {
             }
         }   
 
-        strcpy(saida[i], led);
+        strcat(saida, led);
+        if (i < r-1) strcat(saida, "~");
 
-        printf("%s\n", saida[i]);
+        printf("%s\n", led);
+    }
+    
+    tamLuzGigante = strlen(saida);
+    for (i = 0; i < tamLuzGigante; i++){
+        if (saida[i] == '~'){
+            if (saida[i-1] == saida[i+1]){
+                saida[i] = (i % 2 == 0) ? '@' : '#';
+            }
+            else{
+                saida[i] = (i % 2 == 0) ? '$' : '%';
+            }
+        }
     }
 
-    tamLuzGigante = strlen(saida[0]);
-    printf("%s", saida[0]);
-    
-    for (i = 1; i < r && r > 1; i++){
-
-        tamLuzGigante += (1 + strlen(saida[i]));
-
-        if (saida[i - 1][ultimoLed] == saida[i][0]){
-            ornamento = (tamLuzGigante % 2 == 0) ? '@' : '#'; 
-            printf("%c", ornamento);
-        }
-        else{
-            ornamento = (tamLuzGigante % 2 == 0) ? '$' : '%'; 
-            printf("%c", ornamento);
-        }
-
-    printf("%s", saida[i]);
-
-    }    
+    printf("%s", saida);
 
     return 0;
 }
